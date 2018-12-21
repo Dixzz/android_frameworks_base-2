@@ -476,10 +476,6 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     mHasLogoutButton = true;
                 }
             } else if (GLOBAL_ACTION_KEY_RESTART_RECOVERY.equals(actionKey)) {
-                if (Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_RESTART_RECOVERY, 1) == 1) {
-                    mItems.add(new AdvancedRestartAction());
-                }
                 mItems.add(mRestartAdvancedAction);
             } else {
                 Log.e(TAG, "Invalid global action key " + actionKey);
@@ -645,8 +641,6 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public void onPress() {
-            mWindowManagerFuncs.advancedReboot(PowerManager.REBOOT_RECOVERY);
-        }
     }
 
     private Action getTorchToggleAction() {
@@ -1549,7 +1543,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private static final int MESSAGE_REFRESH = 1;
     private static final int MESSAGE_SHOW = 2;
     private static final int MESSAGE_REFRESH_ADVANCED_REBOOT = 3;
-    private static final int DIALOG_DISMISS_DELAY = 300; // ms
+    private static final int DIALOG_DISMISS_DELAY = 500; // ms
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
