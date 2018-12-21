@@ -122,4 +122,8 @@
     <!-- Partial screenshot -->
     <string name="screenshot_abort_title">No screenshot taken</string>
     <string name="screenshot_abort_text">Operation aborted.</string>
+
+    <!-- Advanced reboot -->
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
 </resources>
